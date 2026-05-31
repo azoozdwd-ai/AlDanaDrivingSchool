@@ -1,0 +1,84 @@
+[dir="ltr"] .nav {
+    direction: ltr;
+}
+
+[dir="ltr"] .hero {
+    direction: ltr;
+}
+
+[dir="ltr"] .links {
+    right: auto;
+    left: 0;
+}
+
+[dir="ltr"] .hero-stats {
+    direction: ltr;
+}
+
+[dir="ltr"] .service-card {
+    text-align: left;
+}
+
+[dir="ltr"] .about-content {
+    text-align: left;
+}
+
+[dir="ltr"] .about-content .features li {
+    text-align: left;
+}
+
+[dir="ltr"] .floating-buttons {
+    left: auto;
+    right: 20px;
+}
+
+[dir="ltr"] .floating-buttons .floating-btn {
+    direction: ltr;
+}
+
+[dir="ltr"] .contact-info .info-card {
+    text-align: left;
+}
+
+[dir="ltr"] .footer {
+    direction: ltr;
+}
+
+[dir="ltr"] .footer-grid {
+    direction: ltr;
+}
+
+[dir="ltr"] .areas-section {
+    direction: ltr;
+}
+
+[dir="ltr"] .swiper-button-prev {
+    left: auto;
+    right: 10px;
+}
+
+[dir="ltr"] .swiper-button-next {
+    right: auto;
+    left: 10px;
+}
+
+[dir="ltr"] .experience-box {
+    right: auto;
+    left: -150px;
+}
+
+[dir="ltr"] .hero-badge {
+    direction: ltr;
+}
+
+[dir="ltr"] .about-section {
+    direction: ltr;
+}
+
+[dir="ltr"] .services-section {
+    direction: ltr;
+}
+
+[dir="ltr"] .contact-section {
+    direction: ltr;
+}
