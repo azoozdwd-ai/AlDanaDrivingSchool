@@ -364,6 +364,23 @@
       contactForm.addEventListener('submit', sendToWhatsapp);
     }
 
+    document.querySelectorAll('.service-learn-more').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var card = this.closest('.service-card');
+        if (!card) return;
+        var h3 = card.querySelector('h3');
+        if (!h3) return;
+        var key = h3.getAttribute('data-i18n');
+        var serviceName = (translations[currentLang] && translations[currentLang][key]) || h3.textContent;
+        var prefix = currentLang === 'ar'
+          ? '\u0627\u0631\u064A\u062F \u0627\u0646 \u0627\u0639\u0631\u0641 \u0627\u0644\u0645\u0632\u064A\u062F \u062D\u0648\u0644'
+          : 'I want to know more about';
+        var msg = encodeURIComponent(prefix + ' ' + serviceName);
+        window.open('https://wa.me/96566606979?text=' + msg, '_blank', 'noopener,noreferrer');
+      });
+    });
+
     var langBtn = document.querySelector('.lang-switch');
     if (langBtn) {
       langBtn.addEventListener('click', function(e) {
