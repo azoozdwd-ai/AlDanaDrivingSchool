@@ -7,4 +7,4 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-Sitemap: https://aldana-driving.com/sitemap.xml
+Sitemap: https://www.aldanadrivingco.com/sitemap.xml
