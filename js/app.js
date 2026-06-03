@@ -392,10 +392,19 @@
     var slides = document.querySelectorAll('#home .hero-slide');
     if (slides.length) {
       var currentSlide = 0;
+      function loadSlideImg(index) {
+        var img = slides[index].querySelector('img');
+        if (img && img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+      }
+      loadSlideImg(0);
       setInterval(function() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
+        loadSlideImg(currentSlide);
       }, 5000);
     }
 
