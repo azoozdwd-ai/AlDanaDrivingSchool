@@ -79,6 +79,19 @@
     direction: ltr;
 }
 
+[dir="ltr"] .faq-section {
+    direction: ltr;
+}
+
+[dir="ltr"] .faq-question {
+    text-align: left;
+}
+
+[dir="ltr"] .faq-question::after {
+    margin-right: auto;
+    margin-left: 0;
+}
+
 [dir="ltr"] .contact-section {
     direction: ltr;
 }
