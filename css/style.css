@@ -820,7 +820,32 @@ h1, h2, h3 {
     color: #6b7280;
     font-size: 15px;
     line-height: 1.9;
-    margin: 0;
+    margin: 0 0 16px;
+}
+
+.service-learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #25D366;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.service-learn-more:hover {
+    color: #1ebe5d;
+    gap: 10px;
+}
+
+.service-learn-more::after {
+    content: '\2190';
+    transition: 0.3s ease;
+}
+
+.service-learn-more:hover::after {
+    transform: translateX(-4px);
 }
 .cta-box {
     position: relative;
@@ -1123,6 +1148,7 @@ h1, h2, h3 {
 .contact-form-card select,
 .contact-form-card textarea {
     width: 100%;
+    max-width: 100%;
     padding: 15px 18px;
     border: 1px solid #dde3eb;
     border-radius: 14px;
@@ -1132,6 +1158,7 @@ h1, h2, h3 {
     outline: none;
     font-family: 'Cairo', sans-serif;
     background: #fff;
+    box-sizing: border-box;
 }
 
 .contact-form-card input:focus,
@@ -1239,6 +1266,25 @@ h1, h2, h3 {
 
     .contact-form-card {
         padding: 28px 20px;
+    }
+
+    .contact-form-card input,
+    .contact-form-card select,
+    .contact-form-card textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 13px 14px;
+        font-size: 15px;
+    }
+
+    .contact-form-card label {
+        font-size: 14px;
+    }
+
+    .contact-form-card button {
+        padding: 14px;
+        font-size: 16px;
     }
 
     .contact-form-card h3,
