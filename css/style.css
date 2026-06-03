@@ -1172,6 +1172,7 @@ h1, h2, h3 {
     color: #6b7280;
     font-size: 15px;
     line-height: 1.9;
+    white-space: pre-line;
 }
 
 @media (max-width: 600px) {
