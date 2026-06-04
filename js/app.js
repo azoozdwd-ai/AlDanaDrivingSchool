@@ -444,6 +444,62 @@
       }, 5000);
     }
 
+    /* ================= Scroll Reveal ================= */
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        revealObserver.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    }
+
+    /* ================= Stats Counter ================= */
+    var statsSection = document.querySelector('.hero-stats');
+    if (statsSection && 'IntersectionObserver' in window) {
+      var counted = false;
+      var statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !counted) {
+            counted = true;
+            statsObserver.unobserve(entry.target);
+            statsSection.querySelectorAll('strong').forEach(function(el) {
+              var text = el.textContent.trim();
+              var suffix = text.replace(/[\d]/g, '');
+              var target = parseInt(text) || 0;
+              if (target === 0) return;
+              var duration = 1500;
+              var steps = 30;
+              var stepTime = duration / steps;
+              var increment = target / steps;
+              var current = 0;
+              el.classList.add('counting');
+              var timer = setInterval(function() {
+                current += increment;
+                if (current >= target) {
+                  current = target;
+                  clearInterval(timer);
+                  el.classList.remove('counting');
+                }
+                el.textContent = Math.floor(current) + suffix;
+              }, stepTime);
+            });
+          }
+        });
+      }, { threshold: 0.5 });
+      statsObserver.observe(statsSection);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var href = this.getAttribute('href');
