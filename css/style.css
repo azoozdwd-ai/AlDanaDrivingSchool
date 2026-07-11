@@ -1277,35 +1277,78 @@ h1, h2, h3 {
 }
 
 .contact-info {
-    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-info > h3 {
+    margin-bottom: 6px;
 }
 
 .info-card {
     background: #fff;
     border-radius: 16px;
-    padding: 20px 22px;
+    padding: 18px 22px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    margin-bottom: 26px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.035);
+    gap: 16px;
+    border: 1px solid #eef2f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 36px;
+    border-radius: 0 4px 4px 0;
+    transform: translateY(-50%);
+    transition: height 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: #dce3ec;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.info-card:hover::before {
+    height: 44px;
+}
+
+.info-card.whatsapp-card::before { background: #25D366; }
+.info-card.phone-card::before     { background: #183b63; }
+.info-card.map-card::before       { background: #d7a725; }
+.info-card.hours-card::before     { background: #2f8f3a; }
+.info-card.review-card::before    { background: #ea4335; }
+
 .info-icon {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 800;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .info-icon img {
-    width: 27px;
-    height: 27px;
+    width: 23px;
+    height: 23px;
     object-fit: contain;
 }
 
@@ -1317,9 +1360,9 @@ h1, h2, h3 {
     background: #e9eef5;
 }
 
-.info-icon.location {
-    background: #fff6df;
-    color: #d7a725;
+.info-icon.google-maps {
+    background: #f1f3f4;
+    color: #5f6368;
 }
 
 .info-icon.time {
@@ -1327,17 +1370,65 @@ h1, h2, h3 {
     color: #2f8f3a;
 }
 
+.info-icon.google-review {
+    background: #fef1e0;
+    color: #ea4335;
+}
+
 .info-card span {
     display: block;
     color: #6b7280;
-    font-size: 16px;
-    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .info-card strong {
     color: #183b63;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 800;
+    display: block;
+    line-height: 1.4;
+}
+
+.info-card a.google-maps-link {
+    text-decoration: none;
+}
+
+.info-card a.google-maps-link strong {
+    transition: color 0.25s ease;
+}
+
+.info-card a.google-maps-link:hover strong {
+    color: #d7a725;
+}
+
+/* Review card - special styling */
+.info-card.review-card {
+    border: 1px solid #fce8d0;
+    background: linear-gradient(135deg, #fffbf5 0%, #fffefc 100%);
+    box-shadow: 0 4px 14px rgba(234, 67, 53, 0.06);
+}
+
+.info-card.review-card:hover {
+    border-color: #f5cba0;
+    box-shadow: 0 8px 28px rgba(234, 67, 53, 0.12);
+}
+
+.info-card.review-card span {
+    color: #b45f06;
+    font-weight: 600;
+}
+
+.info-card.review-card strong {
+    color: #ea4335;
+    font-size: 17px;
+}
+
+.info-card.review-card a.google-maps-link:hover strong {
+    color: #c62828;
 }
 
 @media (max-width: 900px) {
