@@ -393,6 +393,9 @@
       '\u0646\u0648\u0639 \u0627\u0644\u0633\u064A\u0627\u0631\u0629: ' + encodeURIComponent(car) + '%0A' +
       '\u0645\u0644\u0627\u062D\u0638\u0627\u062A: ' + encodeURIComponent(notes);
     window.open('https://wa.me/96566606979?text=' + msg, '_blank', 'noopener,noreferrer');
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', { 'send_to': 'AW-18314674462/XXXXX' });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
